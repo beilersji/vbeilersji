@@ -1,0 +1,11 @@
+#include"topological_sort.h"
+ 
+Graph_DG::Graph_DG(int vexnum, int edge) {
+    this->vexnum = vexnum;
+    this->edge = edge;
+    this->arc = new Vnode[this->vexnum];
+    this->indegree = new int[this->vexnum];
+    for (int i = 0; i < this->vexnum; i++) {
+        this->indegree[i] = 0;
+        this->arc[i].firstarc = NULL;
+        this->arc[i].data = "v" + to_string(i + 1);
