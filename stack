@@ -1,0 +1,9 @@
+void Graph_DG::dfs(int n, bool * & visit, stack<string> & result) {
+ 
+        visit[n] = true;
+        ArcNode * temp = this->arc[n].firstarc;
+        while (temp) {
+            if (!visit[temp->adjvex]) {
+                dfs(temp->adjvex, visit,result);
+            }
+            temp = temp->next;
